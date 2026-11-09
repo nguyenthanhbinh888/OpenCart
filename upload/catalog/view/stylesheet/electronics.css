@@ -1074,3 +1074,300 @@ footer,
     margin-top: 10px;
   }
 }
+
+/* ==========================================================================
+   12. MODERN TECH PRODUCT CARD (THUMB) STYLING
+   ========================================================================== */
+.tech-thumb-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.tech-thumb-card:hover {
+  border-color: #d70018 !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 14px 28px -6px rgba(215, 0, 24, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Top bar: Badges & Wishlist */
+.thumb-top-bar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 8px !important;
+  min-height: 24px !important;
+}
+
+.thumb-badges {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.badge-tag-red {
+  background: #d70018 !important;
+  color: #ffffff !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  padding: 3px 7px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.3px !important;
+}
+
+.badge-tag-installment {
+  background: #eff6ff !important;
+  color: #2563eb !important;
+  border: 1px solid #bfdbfe !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+}
+
+.thumb-wishlist-form {
+  margin: 0 !important;
+}
+
+.btn-wishlist-icon {
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  cursor: pointer !important;
+  padding: 4px !important;
+  font-size: 15px !important;
+  transition: color 0.2s !important;
+}
+
+.btn-wishlist-icon:hover {
+  color: #d70018 !important;
+}
+
+/* Image Wrap */
+.thumb-image-wrap {
+  height: 180px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+  padding: 8px !important;
+  overflow: hidden !important;
+}
+
+.thumb-image-wrap img {
+  max-height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  transition: transform 0.35s ease !important;
+}
+
+.tech-thumb-card:hover .thumb-image-wrap img {
+  transform: scale(1.08) !important;
+}
+
+/* Content Body */
+.thumb-content-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.thumb-title {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  height: 40px !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  margin-bottom: 6px !important;
+}
+
+.thumb-title a {
+  color: #0f172a !important;
+  text-decoration: none !important;
+  transition: color 0.2s !important;
+}
+
+.thumb-title a:hover {
+  color: #d70018 !important;
+}
+
+/* Tech Spec Chips */
+.thumb-spec-chips {
+  display: flex !important;
+  gap: 6px !important;
+  margin-bottom: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.thumb-spec-chips .chip {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+}
+
+/* Rating */
+.thumb-rating {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+  font-size: 11.5px !important;
+}
+
+.thumb-rating .stars {
+  color: #f59e0b !important;
+  letter-spacing: 1px !important;
+}
+
+.thumb-rating .score {
+  font-weight: 800 !important;
+  color: #334155 !important;
+}
+
+.thumb-rating .sold {
+  color: #94a3b8 !important;
+}
+
+/* Price */
+.thumb-price-row {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-bottom: 8px !important;
+  margin-top: auto !important;
+}
+
+.thumb-price-row .price-current {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #d70018 !important;
+  letter-spacing: -0.3px !important;
+}
+
+.thumb-price-row .price-old {
+  font-size: 12.5px !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through !important;
+  font-weight: normal !important;
+}
+
+/* Promo Gift Pill */
+.thumb-gift-pill {
+  background: #fef2f2 !important;
+  border: 1px solid #fee2e2 !important;
+  color: #b91c1c !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  margin-bottom: 12px !important;
+  line-height: 1.3 !important;
+}
+
+/* Button */
+.thumb-actions {
+  margin-top: 4px !important;
+}
+
+.btn-add-cart {
+  width: 100% !important;
+  background: #d70018 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 9px 12px !important;
+  border-radius: 8px !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-add-cart:hover {
+  background: #b91c1c !important;
+  box-shadow: 0 4px 12px rgba(215, 0, 24, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Category Toolbar */
+.category-toolbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  padding: 10px 16px !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.toolbar-left, .toolbar-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.toolbar-label {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+}
+
+.toolbar-select {
+  border-color: #cbd5e1 !important;
+  border-radius: 6px !important;
+  font-size: 12.5px !important;
+  padding: 4px 10px !important;
+  min-width: 120px !important;
+}
+
+.category-main-title {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.5px !important;
+}
+
+.category-desc-text {
+  font-size: 13.5px !important;
+  color: #64748b !important;
+  margin-top: 4px !important;
+}
+
+.sub-cat-pill {
+  display: inline-block !important;
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  margin-right: 6px !important;
+  margin-bottom: 6px !important;
+  border: 1px solid #e2e8f0 !important;
+  transition: all 0.2s !important;
+}
+
+.sub-cat-pill:hover {
+  background: #fee2e2 !important;
+  color: #d70018 !important;
+  border-color: #fca5a5 !important;
+}

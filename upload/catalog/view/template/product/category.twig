@@ -5,106 +5,79 @@
       <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul>
-  <div class="row">{{ column_left }}
-    <div id="content" class="col">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      {% if image or description %}
-        <div class="row">
-          {% if image %}
-            <div class="col-3"><img src="{{ image }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail"/></div>
-          {% endif %}
-          {% if description %}
-            <div class="col-9">{{ description }}</div>
-          {% endif %}
-        </div>
-        <hr/>
-      {% endif %}
+
+  <div class="row">
+    {{ column_left }}
+
+    <div id="content" class="col">
+      {{ content_top }}
+
+      <!-- Category Title & Description -->
+      <div class="category-header-box mb-3">
+        <h1 class="category-main-title">{{ heading_title }}</h1>
+        {% if description %}
+          <p class="category-desc-text">{{ description }}</p>
+        {% endif %}
+      </div>
 
       {% if categories %}
-        <h3>{{ text_refine }}</h3>
-        {% if categories|length <= 5 %}
-          <div class="row">
-            <div class="col-sm-3">
-              <ul>
-                {% for category in categories %}
-                  <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        {% else %}
-          <div class="row row-cols-sm-2 row-cols-lg-4">
-            {% set total = category.children|length %}
-            {% if total > 20 %}
-              {% set batch = (total / 4)|round(0, 'ceil') %}
-            {% else %}
-              {% set batch = 5 %}
-            {% endif %}
-            {% for category in categories|batch(batch) %}
-              <div class="col">
-                <ul>
-                  {% for child in category %}
-                    <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endfor %}
-          </div>
-          <br/>
-        {% endif %}
+        <div class="sub-categories-bar mb-3">
+          <span style="font-weight: 700; font-size: 13px; color: #475569; margin-right: 8px;">Chọn danh mục con:</span>
+          {% for category in categories %}
+            <a href="{{ category.href }}" class="sub-cat-pill">{{ category.name }}</a>
+          {% endfor %}
+        </div>
       {% endif %}
 
       {% if products %}
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="mb-3">
-              <a href="{{ compare }}" id="compare-total" class="btn btn-primary d-block"><i class="fa-solid fa-arrow-right-arrow-left"></i> <span class="d-none d-xl-inline">{{ text_compare }}</span></a>
-            </div>
+        <!-- Filter & Sort Bar -->
+        <div class="category-toolbar mb-4">
+          <div class="toolbar-left">
+            <span class="toolbar-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Sắp xếp theo:</span>
+            <select id="input-sort" class="form-select form-select-sm toolbar-select" onchange="location = this.value;">
+              {% for sorts in sorts %}
+                <option value="{{ sorts.href }}"{% if sorts.value == '%s-%s'|format(sort, order) %} selected{% endif %}>{{ sorts.text }}</option>
+              {% endfor %}
+            </select>
           </div>
-          <div class="col-lg-1 d-none d-lg-block">
-            <div class="btn-group">
-              <button type="button" id="button-list" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_list }}"><i class="fa-solid fa-table-list"></i></button>
-              <button type="button" id="button-grid" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_grid }}"><i class="fa-solid fa-table-cells"></i></button>
-            </div>
-          </div>
-          <div class="col-lg-4 offset-lg-1 col-6">
-            <div class="input-group mb-3">
-              <label for="input-sort" class="input-group-text">{{ text_sort }}</label>
-              <select id="input-sort" class="form-select" onchange="location = this.value;">
-                {% for sorts in sorts %}
-                  <option value="{{ sorts.href }}"{% if sorts.value == '%s-%s'|format(sort, order) %} selected{% endif %}>{{ sorts.text }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <div class="input-group mb-3">
-              <label for="input-limit" class="input-group-text">{{ text_limit }}</label>
-              <select id="input-limit" class="form-select" onchange="location = this.value;">
-                {% for limits in limits %}
-                  <option value="{{ limits.href }}"{% if limits.value == limit %} selected{% endif %}>{{ limits.text }}</option>
-                {% endfor %}
-              </select>
-            </div>
+
+          <div class="toolbar-right">
+            <span class="toolbar-label">Hiển thị:</span>
+            <select id="input-limit" class="form-select form-select-sm toolbar-select" onchange="location = this.value;">
+              {% for limits in limits %}
+                <option value="{{ limits.href }}"{% if limits.value == limit %} selected{% endif %}>{{ limits.text }}</option>
+              {% endfor %}
+            </select>
           </div>
         </div>
 
-        <div id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
+        <!-- Products Grid: 3 columns on desktop for perfect readability -->
+        <div id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-3">
           {% for product in products %}
-            <div class="col mb-3">{{ product }}</div>
+            <div class="col">{{ product }}</div>
           {% endfor %}
         </div>
 
-        <div class="row">
+        <!-- Pagination -->
+        <div class="row mt-4 align-items-center">
           <div class="col-sm-6 text-start">{{ pagination }}</div>
-          <div class="col-sm-6 text-end">{{ results }}</div>
+          <div class="col-sm-6 text-end text-muted" style="font-size: 13px;">{{ results }}</div>
         </div>
       {% endif %}
+
       {% if not categories and not products %}
-        <p>{{ text_no_results }}</p>
-        <div class="text-end"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        <div class="empty-products-box text-center py-5">
+          <div style="font-size: 48px; margin-bottom: 12px;">📦</div>
+          <h4>Hiện chưa có sản phẩm trong danh mục này</h4>
+          <p class="text-muted">Chúng tôi đang cập nhật sản phẩm công nghệ mới nhất vào hệ thống.</p>
+          <a href="{{ continue }}" class="btn btn-primary" style="background: var(--primary); border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700;">Quay lại mua sắm</a>
+        </div>
       {% endif %}
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
+
+      {{ content_bottom }}
+    </div>
+
+    {{ column_right }}
+  </div>
 </div>
 {{ footer }}
