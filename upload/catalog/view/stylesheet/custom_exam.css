@@ -1,0 +1,1090 @@
+/* ===================================================
+   OPENCART FASHION THEME - CSS STYLESHEET
+   Đề bài: Thiết kế trang web OpenCart bằng Dreamweaver
+   - Trang chủ (index.html)
+   - Trang chi tiết sản phẩm (product.html)
+   - Trang thông tin khuyến mại (promotion.html)
+=================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #444;
+    background-color: #ffffff;
+}
+
+a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #000;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===================================================
+   1. HEADER SECTION
+=================================================== */
+.site-header {
+    background: #fff;
+    padding: 22px 0 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo-box {
+    flex: 0 0 240px;
+}
+
+.logo-box img {
+    max-height: 48px;
+    width: auto;
+}
+
+.logo-fallback {
+    font-size: 32px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: -1px;
+}
+
+.logo-fallback span {
+    color: #23a1d1;
+    font-size: 38px;
+    line-height: 0;
+    position: relative;
+    top: -3px;
+}
+
+/* Search Bar */
+.search-box {
+    flex: 1;
+    max-width: 520px;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    height: 38px;
+    padding: 8px 14px;
+    font-size: 13px;
+    border: 1px solid #d5d5d5;
+    border-right: none;
+    outline: none;
+    background: #fafafa;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #999;
+    background: #fff;
+}
+
+.search-btn {
+    height: 38px;
+    padding: 0 22px;
+    background: #4a4a4a;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background: #2b2b2b;
+}
+
+/* Cart Box */
+.cart-box {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.cart-btn {
+    background: #333333;
+    color: #fff;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 16px;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+}
+
+.cart-btn:hover {
+    background: #111;
+}
+
+.cart-info {
+    height: 38px;
+    line-height: 36px;
+    padding: 0 16px;
+    border: 1px solid #dcdcdc;
+    border-left: none;
+    background: #fff;
+    color: #555;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* ===================================================
+   2. MAIN NAVIGATION
+=================================================== */
+.main-nav {
+    background: #444444;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-item a {
+    display: block;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 13px 18px;
+    letter-spacing: 0.3px;
+    border-right: 1px solid #555555;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:first-child a {
+    border-left: 1px solid #555555;
+}
+
+.nav-item a:hover,
+.nav-item.active a {
+    background: #2b2b2b;
+    color: #ffffff;
+}
+
+.nav-item.promo-link a {
+    background: #d9534f;
+    color: #fff;
+}
+.nav-item.promo-link a:hover {
+    background: #c9302c;
+}
+
+/* ===================================================
+   3. LAYOUT: SIDEBAR + MAIN CONTENT
+=================================================== */
+.page-body {
+    padding: 20px 0 35px;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 25px;
+}
+
+/* Left Sidebar */
+.sidebar {
+    width: 240px;
+}
+
+.sidebar-block {
+    background: #fff;
+    margin-bottom: 25px;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.category-list li {
+    border-bottom: 1px dotted #e3e3e3;
+}
+
+.category-list li a {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 4px;
+    font-size: 13px;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.category-list li a:hover {
+    color: #000;
+    padding-left: 8px;
+    font-weight: 600;
+}
+
+.category-list .count {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb a {
+    color: #666;
+}
+
+.breadcrumb a:hover {
+    color: #000;
+}
+
+.breadcrumb .separator {
+    color: #bbb;
+}
+
+/* ===================================================
+   4. HOMEPAGE: BANNERS
+=================================================== */
+.banners-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.banner-item {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.banner-item:hover img {
+    transform: scale(1.02);
+}
+
+.banner-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ===================================================
+   5. PRODUCT SECTION & CARDS
+=================================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.section-arrows {
+    display: flex;
+    gap: 6px;
+}
+
+.arrow-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.arrow-btn:hover {
+    background: #444;
+    color: #fff;
+    border-color: #444;
+}
+
+/* Product Grid */
+.product-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+    border-color: #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product-card .product-thumb {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+.product-card .product-thumb img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-thumb img {
+    transform: scale(1.05);
+}
+
+.product-name {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    min-height: 36px;
+}
+
+.product-name a {
+    color: #333;
+}
+
+.product-name a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-price .old-price {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 6px;
+    font-weight: normal;
+}
+
+.product-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #d9534f;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 2px;
+}
+
+/* ===================================================
+   6. PRODUCT DETAIL PAGE
+=================================================== */
+.product-detail-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Image Column */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.main-image-box {
+    border: 1px solid #e0e0e0;
+    background: #fafafa;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main-image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.thumbnails-row {
+    display: flex;
+    gap: 10px;
+}
+
+.thumb-item {
+    border: 1px solid #ddd;
+    padding: 4px;
+    width: 60px;
+    height: 75px;
+    cursor: pointer;
+    background: #fafafa;
+    transition: border-color 0.2s;
+}
+
+.thumb-item.active,
+.thumb-item:hover {
+    border-color: #333;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info Column */
+.product-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.meta-list {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.meta-list li {
+    margin-bottom: 4px;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #333;
+    min-width: 110px;
+    display: inline-block;
+}
+
+.meta-value.in-stock {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.detail-price-box {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Actions Row */
+.purchase-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.qty-label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 8px;
+    color: #444;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 38px;
+    background: #f7f7f7;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    transition: background 0.2s;
+}
+
+.qty-btn:hover {
+    background: #e5e5e5;
+}
+
+.qty-input {
+    width: 45px;
+    height: 38px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    outline: none;
+}
+
+.btn-buy {
+    height: 38px;
+    padding: 0 25px;
+    background: #4a4a4a;
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-buy:hover {
+    background: #222;
+}
+
+.action-icon-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.action-icon-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+    border-color: #999;
+}
+
+/* Rating & Review */
+.rating-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #777;
+    padding-top: 5px;
+}
+
+.stars {
+    color: #e0e0e0;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.stars.filled {
+    color: #f39c12;
+}
+
+.review-link {
+    color: #555;
+}
+
+.review-link:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Social Share */
+.social-share-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #f8f8f8;
+    color: #333;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.social-btn:hover {
+    background: #eee;
+}
+
+.social-btn.fb {
+    background: #3b5998;
+    color: #fff;
+    border-color: #3b5998;
+}
+.social-btn.twitter {
+    background: #1da1f2;
+    color: #fff;
+    border-color: #1da1f2;
+}
+.social-btn.pinterest {
+    background: #bd081c;
+    color: #fff;
+    border-color: #bd081c;
+}
+.social-btn.share {
+    background: #555;
+    color: #fff;
+    border-color: #555;
+}
+
+/* Related Products Grid (3 columns) */
+.related-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+/* ===================================================
+   7. PROMOTION PAGE STYLES
+=================================================== */
+.promo-hero {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    color: #fff;
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.promo-hero-text h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #f9fafb;
+}
+
+.promo-hero-text p {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #facc15;
+    font-weight: bold;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.timer-unit {
+    background: #111827;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 3px;
+    min-width: 44px;
+}
+
+.timer-unit span {
+    display: block;
+    font-size: 9px;
+    font-weight: normal;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+/* Vouchers Grid */
+.voucher-section {
+    margin-bottom: 30px;
+}
+
+.voucher-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.voucher-card {
+    border: 2px dashed #d1d5db;
+    background: #fdfdfd;
+    padding: 15px;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.voucher-card:hover {
+    border-color: #d9534f;
+    transform: translateY(-2px);
+}
+
+.voucher-discount {
+    font-size: 20px;
+    font-weight: 800;
+    color: #d9534f;
+    margin-bottom: 4px;
+}
+
+.voucher-desc {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.voucher-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.voucher-code {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    background: #eef2f6;
+    padding: 4px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+}
+
+.btn-copy-code {
+    font-size: 11px;
+    font-weight: bold;
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-copy-code:hover {
+    background: #000;
+}
+
+/* Promo Policy Box */
+.promo-policy {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.promo-policy h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.promo-policy ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ===================================================
+   8. SERVICE FEATURES BAR
+=================================================== */
+.service-features-bar {
+    background: #f9f9f9;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: 16px 0;
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 12px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.feature-item:last-child {
+    border-right: none;
+}
+
+.feature-icon {
+    font-size: 22px;
+    color: #444;
+    flex-shrink: 0;
+}
+
+.feature-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+/* ===================================================
+   9. FOOTER SECTION
+=================================================== */
+.site-footer {
+    background: #ffffff;
+    padding: 30px 0 25px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-col h4 {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links li a {
+    color: #666;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    background: #555555;
+    color: #e0e0e0;
+    padding: 14px 0;
+    font-size: 12px;
+}
+
+.copyright-bar p {
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* ===================================================
+   10. RESPONSIVE DESIGN
+=================================================== */
+@media (max-width: 992px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .product-grid-6 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .banners-grid {
+        grid-template-columns: 1fr;
+    }
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .feature-item:nth-child(2) {
+        border-right: none;
+    }
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .logo-box {
+        text-align: center;
+    }
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .nav-item a {
+        border-right: none;
+        border-bottom: 1px solid #555;
+    }
+    .product-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-item {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 10px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .voucher-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

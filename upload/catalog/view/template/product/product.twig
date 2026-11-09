@@ -1,0 +1,201 @@
+{{ header }}
+<div id="product-info" class="container page-body">
+  <div class="layout-grid">
+    
+    <!-- LEFT SIDEBAR: DANH MỤC -->
+    <aside class="sidebar">
+      <div class="sidebar-block">
+        <h3 class="sidebar-title">DANH MỤC</h3>
+        <ul class="category-list">
+          <li><a href="index.php?route=product/category&path=101">Thời trang em bé <span class="count">(7)</span></a></li>
+          <li><a href="index.php?route=product/category&path=102">Váy &amp; Đầm <span class="count">(5)</span></a></li>
+          <li><a href="index.php?route=product/category&path=103">Tặng quà <span class="count">(1)</span></a></li>
+          <li><a href="index.php?route=product/category&path=104">Thời trang <span class="count">(13)</span></a></li>
+          <li><a href="index.php?route=product/category&path=105">Thời trang biển <span class="count">(2)</span></a></li>
+          <li><a href="index.php?route=product/category&path=106"><strong>Thời trang nữ</strong> <span class="count">(7)</span></a></li>
+          <li><a href="index.php?route=product/category&path=107">Thời trang nam <span class="count">(7)</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT: PRODUCT DETAIL -->
+    <section class="main-content">
+      <h1 class="product-detail-title">{{ heading_title }}</h1>
+
+      <div class="product-detail-layout">
+        
+        <!-- Left: Image & Thumbnails -->
+        <div class="product-gallery">
+          <div class="main-image-box">
+            <img id="main-product-img" src="{{ thumb ? thumb : 'image/catalog/prod_detail_main.jpg' }}" alt="{{ heading_title }}"/>
+          </div>
+          <div class="thumbnails-row">
+            <div class="thumb-item active" data-img="image/catalog/prod_detail_main.jpg">
+              <img src="image/catalog/prod_thumb1.jpg" alt="Thumb 1"/>
+            </div>
+            <div class="thumb-item" data-img="image/catalog/prod_01.jpg">
+              <img src="image/catalog/prod_thumb2.jpg" alt="Thumb 2"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Info & Purchase -->
+        <div class="product-info-col">
+          <ul class="meta-list">
+            <li><span class="meta-label">Nhà sản xuất:</span> <span class="meta-value">{{ manufacturer ? manufacturer : 'Apple' }}</span></li>
+            <li><span class="meta-label">Mã sản phẩm:</span> <span class="meta-value">{{ model ? model : 'Product 18' }}</span></li>
+            <li><span class="meta-label">Tình trạng:</span> <span class="meta-value in-stock">{% if not stock or stock == 'In Stock' %}Còn hàng{% else %}{{ stock }}{% endif %}</span></li>
+          </ul>
+
+          <div class="detail-price-box">
+            <div class="detail-price">{{ price ? price|replace({',': '.'}) : '600.000đ' }}</div>
+          </div>
+
+          <!-- Purchase Row -->
+          <form id="form-product">
+            <input type="hidden" name="product_id" value="{{ product_id }}"/>
+            <div class="purchase-row">
+              <span class="qty-label">Số lượng</span>
+              <div class="quantity-control">
+                <button type="button" class="qty-btn" id="qty-minus">-</button>
+                <input type="text" name="quantity" class="qty-input" id="product-qty" value="{{ minimum ? minimum : 1 }}" readonly/>
+                <button type="button" class="qty-btn" id="qty-plus">+</button>
+              </div>
+
+              <button type="button" id="button-cart" class="btn-buy">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                MUA HÀNG
+              </button>
+
+              <button type="button" class="action-icon-btn" title="So sánh sản phẩm" onclick="alert('Đã thêm vào danh sách so sánh');">⇄</button>
+              <button type="button" class="action-icon-btn" title="Thêm vào yêu thích" onclick="alert('Đã thêm vào danh sách yêu thích');">♡</button>
+            </div>
+          </form>
+
+          <!-- Rating -->
+          <div class="rating-row">
+            <span class="stars">☆☆☆☆☆</span>
+            <a href="#reviews" class="review-link">0 đánh giá / Viết đánh giá</a>
+          </div>
+
+          <!-- Social Share -->
+          <div class="social-share-row">
+            <button type="button" class="social-btn fb">👍 Thích 1</button>
+            <button type="button" class="social-btn twitter">🐦 Tweet</button>
+            <button type="button" class="social-btn pinterest">📌 Pin it</button>
+            <button type="button" class="social-btn share">Chia sẻ 2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SẢN PHẨM LIÊN QUAN -->
+      <div class="related-section">
+        <div class="section-header">
+          <h2 class="section-title">SẢN PHẨM LIÊN QUAN</h2>
+        </div>
+
+        <div class="related-grid-3">
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=202">
+                <img src="image/catalog/related_02.jpg" alt="Thời trang nữ 02"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=202">Thời trang nữ 02</a></h3>
+            <div class="product-price">300.000đ</div>
+            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
+              <span class="stars filled">★★★★★</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=205">
+                <img src="image/catalog/related_05.jpg" alt="Thời trang nữ 05"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=205">Thời trang nữ 05</a></h3>
+            <div class="product-price">700.000đ</div>
+            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
+              <span class="stars filled">★★★★★</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=203">
+                <img src="image/catalog/related_03.jpg" alt="Thời trang nữ 03"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=203">Thời trang nữ 03</a></h3>
+            <div class="product-price">350.000đ</div>
+            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
+              <span class="stars filled">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // Quantity increment & decrement
+    $('#qty-minus').on('click', function() {
+        var qty = parseInt($('#product-qty').val()) || 1;
+        if (qty > 1) {
+            $('#product-qty').val(qty - 1);
+        }
+    });
+    $('#qty-plus').on('click', function() {
+        var qty = parseInt($('#product-qty').val()) || 1;
+        $('#product-qty').val(qty + 1);
+    });
+
+    // Thumbnail switcher
+    $('.thumb-item').on('click', function() {
+        $('.thumb-item').removeClass('active');
+        $(this).addClass('active');
+        var targetImg = $(this).attr('data-img');
+        if (targetImg) {
+            $('#main-product-img').attr('src', targetImg);
+        }
+    });
+
+    // OpenCart AJAX Add to Cart
+    $('#button-cart').on('click', function() {
+        var $btn = $(this);
+        $.ajax({
+            url: 'index.php?route=checkout/cart.add',
+            type: 'post',
+            data: $('#form-product').serialize(),
+            dataType: 'json',
+            beforeSend: function() {
+                $btn.prop('disabled', true);
+            },
+            complete: function() {
+                $btn.prop('disabled', false);
+            },
+            success: function(json) {
+                if (json['error']) {
+                    alert(json['error']);
+                }
+                if (json['success']) {
+                    // Reload cart
+                    $('#header-cart').load('index.php?route=common/cart.info');
+                    alert('Thành công: Bạn đã thêm sản phẩm vào giỏ hàng!');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+{{ footer }}

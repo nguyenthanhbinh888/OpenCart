@@ -1,0 +1,137 @@
+{{ header }}
+<div id="common-home" class="container page-body">
+  <div class="layout-grid">
+    
+    <!-- LEFT SIDEBAR: DANH MỤC -->
+    <aside class="sidebar">
+      <div class="sidebar-block">
+        <h3 class="sidebar-title">DANH MỤC</h3>
+        <ul class="category-list">
+          <li><a href="index.php?route=product/category&path=101">Thời trang em bé <span class="count">(7)</span></a></li>
+          <li><a href="index.php?route=product/category&path=102">Váy &amp; Đầm <span class="count">(5)</span></a></li>
+          <li><a href="index.php?route=product/category&path=103">Tặng quà <span class="count">(1)</span></a></li>
+          <li><a href="index.php?route=product/category&path=104">Thời trang <span class="count">(13)</span></a></li>
+          <li><a href="index.php?route=product/category&path=105">Thời trang biển <span class="count">(2)</span></a></li>
+          <li><a href="index.php?route=product/category&path=106"><strong>Thời trang nữ</strong> <span class="count">(7)</span></a></li>
+          <li><a href="index.php?route=product/category&path=107">Thời trang nam <span class="count">(7)</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <section class="main-content">
+      
+      <!-- BANNERS GRID -->
+      <div class="banners-grid">
+        <div class="banner-item banner-main">
+          <img src="image/catalog/banner_men.jpg" alt="Men New Style" class="img-fluid"/>
+        </div>
+        <div class="banner-stacked">
+          <div class="banner-item">
+            <img src="image/catalog/banner_save20.jpg" alt="Save 20%" class="img-fluid"/>
+          </div>
+          <div class="banner-item">
+            <img src="image/catalog/banner_sale50.jpg" alt="End of Season Sale" class="img-fluid"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: THỜI TRANG NỮ -->
+      <div class="products-section">
+        <div class="section-header">
+          <h2 class="section-title">THỜI TRANG NỮ</h2>
+          <div class="section-arrows">
+            <button type="button" class="arrow-btn" id="slide-prev" title="Trước">&lt;</button>
+            <button type="button" class="arrow-btn" id="slide-next" title="Tiếp theo">&gt;</button>
+          </div>
+        </div>
+
+        <div class="product-grid-6" id="product-slider" style="overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+          <!-- Product 1: Thời trang nữ 07 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=207">
+                <img src="image/catalog/prod_07.jpg" alt="Thời trang nữ 07"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=207">Thời trang nữ 07</a></h3>
+            <div class="product-price">250.000đ</div>
+          </div>
+
+          <!-- Product 2: Thời trang nữ 04 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=204">
+                <img src="image/catalog/prod_04.jpg" alt="Thời trang nữ 04"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=204">Thời trang nữ 04</a></h3>
+            <div class="product-price">200.000đ</div>
+          </div>
+
+          <!-- Product 3: Thời trang nữ 06 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=206">
+                <img src="image/catalog/prod_06.jpg" alt="Thời trang nữ 06"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=206">Thời trang nữ 06</a></h3>
+            <div class="product-price">550.000đ</div>
+          </div>
+
+          <!-- Product 4: Thời trang nữ 01 (LIÊN KẾT ĐẾN PRODUCT 45) -->
+          <div class="product-card highlight-product">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=45" title="Xem chi tiết Thời trang nữ 01">
+                <img src="image/catalog/prod_01.jpg" alt="Thời trang nữ 01"/>
+              </a>
+            </div>
+            <h3 class="product-name">
+              <a href="index.php?route=product/product&product_id=45" title="Xem chi tiết Thời trang nữ 01">Thời trang nữ 01</a>
+            </h3>
+            <div class="product-price">600.000đ</div>
+          </div>
+
+          <!-- Product 5: Thời trang nữ 03 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=203">
+                <img src="image/catalog/prod_03.jpg" alt="Thời trang nữ 03"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=203">Thời trang nữ 03</a></h3>
+            <div class="product-price">350.000đ</div>
+          </div>
+
+          <!-- Product 6: Thời trang nữ 05 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="index.php?route=product/product&product_id=205">
+                <img src="image/catalog/prod_05.jpg" alt="Thời trang nữ 05"/>
+              </a>
+            </div>
+            <h3 class="product-name"><a href="index.php?route=product/product&product_id=205">Thời trang nữ 05</a></h3>
+            <div class="product-price">700.000đ</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#slide-prev').on('click', function() {
+        var el = document.getElementById('product-slider');
+        if (el) el.scrollBy({ left: -220, behavior: 'smooth' });
+    });
+    $('#slide-next').on('click', function() {
+        var el = document.getElementById('product-slider');
+        if (el) el.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+});
+</script>
+
+{{ footer }}
