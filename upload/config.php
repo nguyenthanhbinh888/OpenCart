@@ -2,11 +2,26 @@
 // APPLICATION
 define('APPLICATION', 'Catalog');
 
-// HTTP
-define('HTTP_SERVER', 'http://localhost:8000/');
+// Detect Environment
+$http_host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
+$is_local = (strpos($http_host, 'localhost') !== false || strpos($http_host, '127.0.0.1') !== false || strpos($http_host, '.lhr.life') !== false);
+
+if ($is_local) {
+    define('HTTP_SERVER', 'http://' . $http_host . '/');
+    define('DB_HOSTNAME', '127.0.0.1');
+    define('DB_USERNAME', 'root');
+    define('DB_PASSWORD', '123456');
+    define('DB_DATABASE', 'opencart');
+} else {
+    define('HTTP_SERVER', 'http://nguyenthanhbinhth2901.infinityfree.io/');
+    define('DB_HOSTNAME', 'sql311.infinityfree.com');
+    define('DB_USERNAME', 'if0_43392642');
+    define('DB_PASSWORD', '8gy1ENdUORVrp');
+    define('DB_DATABASE', 'if0_43392642_opencart');
+}
 
 // DIR
-define('DIR_OPENCART', 'C:/Users/Admin/Desktop/opencart/upload/');
+define('DIR_OPENCART', rtrim(str_replace('\\', '/', __DIR__), '/') . '/');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
 define('DIR_SYSTEM', DIR_OPENCART . 'system/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
@@ -21,17 +36,10 @@ define('DIR_LOGS', DIR_STORAGE . 'logs/');
 define('DIR_SESSION', DIR_STORAGE . 'session/');
 define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 
-// DB
+// DB CONFIG
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', '127.0.0.1');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '123456');
-define('DB_DATABASE', 'opencart');
 define('DB_PREFIX', 'oc_');
 define('DB_PORT', '3306');
+
 // Cache
-define('CACHE_ENGINE', 'file'); // apc, file, mem, memcached or redis
-//define('CACHE_HOSTNAME', 'unix:///home/user/.system/redis.sock');
-//define('CACHE_PORT', 6379);
-//define('CACHE_PREFIX', 'oc_cache_');
-//define('CACHE_PASSWORD', 'secret');
+define('CACHE_ENGINE', 'file');

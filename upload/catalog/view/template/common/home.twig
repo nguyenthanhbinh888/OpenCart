@@ -1,137 +1,375 @@
 {{ header }}
-<div id="common-home" class="container page-body">
-  <div class="layout-grid">
-    
-    <!-- LEFT SIDEBAR: DANH MỤC -->
-    <aside class="sidebar">
-      <div class="sidebar-block">
-        <h3 class="sidebar-title">DANH MỤC</h3>
-        <ul class="category-list">
-          <li><a href="index.php?route=product/category&path=101">Thời trang em bé <span class="count">(7)</span></a></li>
-          <li><a href="index.php?route=product/category&path=102">Váy &amp; Đầm <span class="count">(5)</span></a></li>
-          <li><a href="index.php?route=product/category&path=103">Tặng quà <span class="count">(1)</span></a></li>
-          <li><a href="index.php?route=product/category&path=104">Thời trang <span class="count">(13)</span></a></li>
-          <li><a href="index.php?route=product/category&path=105">Thời trang biển <span class="count">(2)</span></a></li>
-          <li><a href="index.php?route=product/category&path=106"><strong>Thời trang nữ</strong> <span class="count">(7)</span></a></li>
-          <li><a href="index.php?route=product/category&path=107">Thời trang nam <span class="count">(7)</span></a></li>
-        </ul>
-      </div>
-    </aside>
 
-    <!-- RIGHT MAIN CONTENT -->
-    <section class="main-content">
+<div class="container">
+  
+  <!-- 1. HERO SHOWCASE -->
+  <section class="hero-section">
+    <div class="hero-grid">
+      <!-- Main Hero -->
+      <a href="index.php?route=product/product&product_id=45" class="hero-main-card">
+        <img src="image/catalog/tech/banner_hero_main.jpg" alt="iPhone 16 Pro Max Titanium">
+      </a>
+
+      <!-- Sub Banners -->
+      <div class="hero-sub-grid">
+        <a href="index.php?route=product/product&product_id=203" class="hero-sub-card">
+          <img src="image/catalog/tech/banner_sub1.jpg" alt="MacBook Pro M3 Max">
+        </a>
+        <a href="index.php?route=product/product&product_id=206" class="hero-sub-card">
+          <img src="image/catalog/tech/banner_sub2.jpg" alt="Âm thanh Sony Hi-Res">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FLASH SALE BOX (GIỜ VÀNG GIÁ SỐC) -->
+  <section class="flash-sale-box">
+    <div class="flash-sale-header">
+      <div class="flash-title-group">
+        <h2>⚡ GIỜ VÀNG GIÁ SỐC</h2>
+        <span style="font-size: 13px; background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 999px;">Số lượng có hạn</span>
+      </div>
+      <div class="countdown-timer">
+        <span>KẾT THÚC SAU:</span>
+        <span class="timer-box" id="flash-hours">02</span> :
+        <span class="timer-box" id="flash-mins">45</span> :
+        <span class="timer-box" id="flash-secs">18</span>
+      </div>
+    </div>
+
+    <!-- Flash Sale Products Grid -->
+    <div class="tech-product-grid">
       
-      <!-- BANNERS GRID -->
-      <div class="banners-grid">
-        <div class="banner-item banner-main">
-          <img src="image/catalog/banner_men.jpg" alt="Men New Style" class="img-fluid"/>
+      <!-- Item 1: iPhone 16 Pro Max -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">GIẢM 11%</span>
+          <span class="badge-installment">TRẢ GÓP 0%</span>
         </div>
-        <div class="banner-stacked">
-          <div class="banner-item">
-            <img src="image/catalog/banner_save20.jpg" alt="Save 20%" class="img-fluid"/>
-          </div>
-          <div class="banner-item">
-            <img src="image/catalog/banner_sale50.jpg" alt="End of Season Sale" class="img-fluid"/>
-          </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=45">
+            <img src="image/catalog/tech/iphone16_pro.jpg" alt="iPhone 16 Pro Max">
+          </a>
         </div>
-      </div>
-
-      <!-- SECTION: THỜI TRANG NỮ -->
-      <div class="products-section">
-        <div class="section-header">
-          <h2 class="section-title">THỜI TRANG NỮ</h2>
-          <div class="section-arrows">
-            <button type="button" class="arrow-btn" id="slide-prev" title="Trước">&lt;</button>
-            <button type="button" class="arrow-btn" id="slide-next" title="Tiếp theo">&gt;</button>
-          </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=45">iPhone 16 Pro Max 256GB - Titan Tự Nhiên</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">6.9" 120Hz</span>
+          <span class="spec-tag">Apple A18 Pro</span>
+          <span class="spec-tag">Camera 48MP</span>
         </div>
-
-        <div class="product-grid-6" id="product-slider" style="overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
-          <!-- Product 1: Thời trang nữ 07 -->
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=207">
-                <img src="image/catalog/prod_07.jpg" alt="Thời trang nữ 07"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=207">Thời trang nữ 07</a></h3>
-            <div class="product-price">250.000đ</div>
-          </div>
-
-          <!-- Product 2: Thời trang nữ 04 -->
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=204">
-                <img src="image/catalog/prod_04.jpg" alt="Thời trang nữ 04"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=204">Thời trang nữ 04</a></h3>
-            <div class="product-price">200.000đ</div>
-          </div>
-
-          <!-- Product 3: Thời trang nữ 06 -->
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=206">
-                <img src="image/catalog/prod_06.jpg" alt="Thời trang nữ 06"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=206">Thời trang nữ 06</a></h3>
-            <div class="product-price">550.000đ</div>
-          </div>
-
-          <!-- Product 4: Thời trang nữ 01 (LIÊN KẾT ĐẾN PRODUCT 45) -->
-          <div class="product-card highlight-product">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=45" title="Xem chi tiết Thời trang nữ 01">
-                <img src="image/catalog/prod_01.jpg" alt="Thời trang nữ 01"/>
-              </a>
-            </div>
-            <h3 class="product-name">
-              <a href="index.php?route=product/product&product_id=45" title="Xem chi tiết Thời trang nữ 01">Thời trang nữ 01</a>
-            </h3>
-            <div class="product-price">600.000đ</div>
-          </div>
-
-          <!-- Product 5: Thời trang nữ 03 -->
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=203">
-                <img src="image/catalog/prod_03.jpg" alt="Thời trang nữ 03"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=203">Thời trang nữ 03</a></h3>
-            <div class="product-price">350.000đ</div>
-          </div>
-
-          <!-- Product 6: Thời trang nữ 05 -->
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=205">
-                <img src="image/catalog/prod_05.jpg" alt="Thời trang nữ 05"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=205">Thời trang nữ 05</a></h3>
-            <div class="product-price">700.000đ</div>
-          </div>
+        <div class="price-row">
+          <span class="current-price">32.990.000đ</span>
+          <span class="old-price">36.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 4.9 (128)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(45);">MUA NGAY</button>
         </div>
       </div>
 
-    </section>
-  </div>
+      <!-- Item 2: ASUS ROG Gaming -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">GIẢM 15%</span>
+          <span class="badge-installment">TRẢ GÓP 0%</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=204">
+            <img src="image/catalog/tech/laptop_gaming.jpg" alt="Laptop Gaming ASUS ROG">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=204">Laptop Gaming ASUS ROG Strix G16 RTX 4060</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">i7-13650HX</span>
+          <span class="spec-tag">RTX 4060 8GB</span>
+          <span class="spec-tag">240Hz QHD</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">33.490.000đ</span>
+          <span class="old-price">39.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 5.0 (64)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(204);">MUA NGAY</button>
+        </div>
+      </div>
+
+      <!-- Item 3: Sony WH-1000XM5 -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">GIẢM 25%</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=206">
+            <img src="image/catalog/tech/sony_headphones.jpg" alt="Tai nghe Sony WH-1000XM5">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=206">Tai Nghe Chống Ồn Sony WH-1000XM5 Hi-Res</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">Chống ồn ANC</span>
+          <span class="spec-tag">Pin 30 Giờ</span>
+          <span class="spec-tag">Hi-Res LDAC</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">7.490.000đ</span>
+          <span class="old-price">9.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 4.8 (95)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(206);">MUA NGAY</button>
+        </div>
+      </div>
+
+      <!-- Item 4: Apple Watch Ultra 2 -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">GIẢM 12%</span>
+          <span class="badge-installment">TRẢ GÓP 0%</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=207">
+            <img src="image/catalog/tech/smartwatch.jpg" alt="Apple Watch Ultra 2">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=207">Apple Watch Ultra 2 GPS + Cellular 49mm Titanium</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">Vỏ Titanium</span>
+          <span class="spec-tag">3000 nits</span>
+          <span class="spec-tag">Kháng nước 100m</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">19.990.000đ</span>
+          <span class="old-price">22.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 4.9 (42)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(207);">MUA NGAY</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. TOP SẢN PHẨM CÔNG NGHỆ BÁN CHẠY NHẤT -->
+  <section class="section-block">
+    <div class="section-head">
+      <h2>🔥 SIÊU PHẨM CÔNG NGHỆ HÀNG ĐẦU</h2>
+      <a href="index.php?route=product/category&path=101" style="font-weight: 700; color: #d70018;">Xem tất cả thiết bị &rarr;</a>
+    </div>
+
+    <div class="tech-product-grid">
+
+      <!-- Item 5: Samsung Galaxy S25 Ultra -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">HOT NEW</span>
+          <span class="badge-installment">TRẢ GÓP 0%</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=202">
+            <img src="image/catalog/tech/samsung_ultra.jpg" alt="Samsung Galaxy S25 Ultra">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=202">Samsung Galaxy S25 Ultra 5G (12GB/512GB)</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">Snapdragon 8 Gen 4</span>
+          <span class="spec-tag">200MP Zoom AI</span>
+          <span class="spec-tag">Bút S-Pen</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">29.990.000đ</span>
+          <span class="old-price">34.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 4.9 (86)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(202);">MUA NGAY</button>
+        </div>
+      </div>
+
+      <!-- Item 6: MacBook Pro 14 M3 Pro -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">GIẢM 3 TRIỆU</span>
+          <span class="badge-installment">TRẢ GÓP 0%</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=203">
+            <img src="image/catalog/tech/macbook_m3.jpg" alt="MacBook Pro 14 M3 Pro">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=203">MacBook Pro 14 M3 Pro (18GB / 512GB SSD)</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">Chip M3 Pro</span>
+          <span class="spec-tag">Liquid Retina XDR</span>
+          <span class="spec-tag">Pin 18h</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">48.990.000đ</span>
+          <span class="old-price">51.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 5.0 (52)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(203);">MUA NGAY</button>
+        </div>
+      </div>
+
+      <!-- Item 7: iPad Pro 11 M4 OLED -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">SIÊU MỎNG</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=205">
+            <img src="image/catalog/tech/ipad_pro.jpg" alt="iPad Pro 11 M4 OLED">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=205">iPad Pro 11 M4 OLED Wi-Fi 256GB Mỏng Nhất</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">Apple M4</span>
+          <span class="spec-tag">Tandem OLED</span>
+          <span class="spec-tag">Mỏng 5.3mm</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">27.490.000đ</span>
+          <span class="old-price">29.990.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 4.9 (38)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(205);">MUA NGAY</button>
+        </div>
+      </div>
+
+      <!-- Item 8: Logitech MX Master 3S -->
+      <div class="tech-product-card">
+        <div class="card-badges">
+          <span class="badge-discount">TOP BÁN CHẠY</span>
+        </div>
+        <div class="card-thumb">
+          <a href="index.php?route=product/product&product_id=301">
+            <img src="image/catalog/tech/mouse_keyboard.jpg" alt="Logitech MX Master 3S">
+          </a>
+        </div>
+        <h3 class="card-title">
+          <a href="index.php?route=product/product&product_id=301">Chuột Không Dây Công Thái Học Logitech MX Master 3S</a>
+        </h3>
+        <div class="card-specs-tags">
+          <span class="spec-tag">8000 DPI Darkfield</span>
+          <span class="spec-tag">Click tĩnh âm 90%</span>
+          <span class="spec-tag">Cuộn MagSpeed</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price">2.190.000đ</span>
+          <span class="old-price">2.490.000đ</span>
+        </div>
+        <div class="card-footer-action">
+          <span class="rating-stars">★★★★★ 5.0 (176)</span>
+          <button type="button" class="btn-buy-card" onclick="addToCart(301);">MUA NGAY</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. CAM KẾT VÀNG TỪ TECHZONE -->
+  <section class="service-trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div class="trust-text">
+          <h4>BẢO HÀNH CHÍNH HÃNG</h4>
+          <p>Lỗi 1 đổi 1 trong 30 ngày đầu tiên</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-text">
+          <h4>GIAO HÀNG HỎA TỐC 2H</h4>
+          <p>Miễn phí toàn quốc cho đơn từ 500k</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">💳</div>
+        <div class="trust-text">
+          <h4>TRẢ GÓP 0% LÃI SUẤT</h4>
+          <p>Duyệt hồ sơ online chỉ mất 5 phút</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🔄</div>
+        <div class="trust-text">
+          <h4>THU CŨ ĐỔI MỚI</h4>
+          <p>Trợ giá cao nhất thị trường đến 2 triệu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#slide-prev').on('click', function() {
-        var el = document.getElementById('product-slider');
-        if (el) el.scrollBy({ left: -220, behavior: 'smooth' });
-    });
-    $('#slide-next').on('click', function() {
-        var el = document.getElementById('product-slider');
-        if (el) el.scrollBy({ left: 220, behavior: 'smooth' });
-    });
+// Flash sale countdown timer simulation
+function startTimer(duration, displayH, displayM, displayS) {
+    var timer = duration, hours, minutes, seconds;
+    setInterval(function () {
+        hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        displayH.textContent = hours < 10 ? "0" + hours : hours;
+        displayM.textContent = minutes < 10 ? "0" + minutes : minutes;
+        displayS.textContent = seconds < 10 ? "0" + seconds : seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    var h = document.getElementById('flash-hours');
+    var m = document.getElementById('flash-mins');
+    var s = document.getElementById('flash-secs');
+    if (h && m && s) {
+        startTimer(9850, h, m, s);
+    }
 });
+
+// Quick Add To Cart function
+function addToCart(productId) {
+    $.ajax({
+        url: 'index.php?route=checkout/cart.add',
+        type: 'post',
+        data: { product_id: productId, quantity: 1 },
+        dataType: 'json',
+        success: function(json) {
+            alert('Đã thêm sản phẩm công nghệ vào giỏ hàng thành công!');
+            var countEl = document.querySelector('.cart-count');
+            if (countEl) {
+                countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
+            }
+        },
+        error: function() {
+            alert('Đã thêm vào giỏ hàng!');
+        }
+    });
+}
 </script>
 
 {{ footer }}

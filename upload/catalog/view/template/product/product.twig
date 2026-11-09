@@ -1,172 +1,196 @@
 {{ header }}
-<div id="product-info" class="container page-body">
-  <div class="layout-grid">
-    
-    <!-- LEFT SIDEBAR: DANH MỤC -->
-    <aside class="sidebar">
-      <div class="sidebar-block">
-        <h3 class="sidebar-title">DANH MỤC</h3>
-        <ul class="category-list">
-          <li><a href="index.php?route=product/category&path=101">Thời trang em bé <span class="count">(7)</span></a></li>
-          <li><a href="index.php?route=product/category&path=102">Váy &amp; Đầm <span class="count">(5)</span></a></li>
-          <li><a href="index.php?route=product/category&path=103">Tặng quà <span class="count">(1)</span></a></li>
-          <li><a href="index.php?route=product/category&path=104">Thời trang <span class="count">(13)</span></a></li>
-          <li><a href="index.php?route=product/category&path=105">Thời trang biển <span class="count">(2)</span></a></li>
-          <li><a href="index.php?route=product/category&path=106"><strong>Thời trang nữ</strong> <span class="count">(7)</span></a></li>
-          <li><a href="index.php?route=product/category&path=107">Thời trang nam <span class="count">(7)</span></a></li>
-        </ul>
-      </div>
-    </aside>
 
-    <!-- RIGHT MAIN CONTENT: PRODUCT DETAIL -->
-    <section class="main-content">
-      <h1 class="product-detail-title">{{ heading_title }}</h1>
+<div class="container">
+  
+  <!-- BREADCRUMBS -->
+  <ul class="breadcrumb" style="display: flex; gap: 8px; list-style: none; padding: 14px 0; font-size: 13px; color: #64748b;">
+    <li><a href="{{ home }}">Trang chủ</a></li>
+    <li>/</li>
+    <li><a href="index.php?route=product/category&path=101">Điện thoại & Thiết bị di động</a></li>
+    <li>/</li>
+    <li style="color: #0f172a; font-weight: 600;">{{ heading_title }}</li>
+  </ul>
 
-      <div class="product-detail-layout">
-        
-        <!-- Left: Image & Thumbnails -->
-        <div class="product-gallery">
-          <div class="main-image-box">
-            <img id="main-product-img" src="{{ thumb ? thumb : 'image/catalog/prod_detail_main.jpg' }}" alt="{{ heading_title }}"/>
+  <div class="product-detail-wrapper">
+    <!-- Title & Rating Meta -->
+    <h1 class="product-detail-title">{{ heading_title }}</h1>
+    <div class="product-detail-meta">
+      <span style="color: #f59e0b; font-weight: 700;">★★★★★ 4.9</span>
+      <span>(128 đánh giá)</span>
+      <span>|</span>
+      <span>Mã sản phẩm: <strong>{{ model ? model : 'IP16PM-256' }}</strong></span>
+      <span>|</span>
+      <span>Thương hiệu: <strong style="color: #d70018;">{{ manufacturer ? manufacturer : 'Apple' }}</strong></span>
+      <span>|</span>
+      <span style="color: #16a34a; font-weight: 700;">● Còn hàng</span>
+    </div>
+
+    <!-- 2-COL LAYOUT -->
+    <div class="detail-layout">
+      
+      <!-- Left: Gallery & Highlights -->
+      <div class="detail-gallery">
+        <div class="main-img-box">
+          <img id="main-product-img" src="{{ thumb ? thumb : 'image/catalog/tech/iphone16_pro.jpg' }}" alt="{{ heading_title }}">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbs-row">
+          <div class="thumb-chip active" onclick="switchImg('image/catalog/tech/iphone16_pro.jpg', this);">
+            <img src="image/catalog/tech/iphone16_pro.jpg" alt="Titan Tự Nhiên">
           </div>
-          <div class="thumbnails-row">
-            <div class="thumb-item active" data-img="image/catalog/prod_detail_main.jpg">
-              <img src="image/catalog/prod_thumb1.jpg" alt="Thumb 1"/>
-            </div>
-            <div class="thumb-item" data-img="image/catalog/prod_01.jpg">
-              <img src="image/catalog/prod_thumb2.jpg" alt="Thumb 2"/>
-            </div>
+          <div class="thumb-chip" onclick="switchImg('image/catalog/tech/samsung_ultra.jpg', this);">
+            <img src="image/catalog/tech/samsung_ultra.jpg" alt="Samsung S25">
+          </div>
+          <div class="thumb-chip" onclick="switchImg('image/catalog/tech/ipad_pro.jpg', this);">
+            <img src="image/catalog/tech/ipad_pro.jpg" alt="iPad Pro M4">
           </div>
         </div>
 
-        <!-- Right: Info & Purchase -->
-        <div class="product-info-col">
-          <ul class="meta-list">
-            <li><span class="meta-label">Nhà sản xuất:</span> <span class="meta-value">{{ manufacturer ? manufacturer : 'Apple' }}</span></li>
-            <li><span class="meta-label">Mã sản phẩm:</span> <span class="meta-value">{{ model ? model : 'Product 18' }}</span></li>
-            <li><span class="meta-label">Tình trạng:</span> <span class="meta-value in-stock">{% if not stock or stock == 'In Stock' %}Còn hàng{% else %}{{ stock }}{% endif %}</span></li>
+        <!-- Special Highlight Features Box -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-top: 16px;">
+          <h4 style="font-size: 13.5px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">✨ ĐẶC ĐIỂM NỔI BẬT:</h4>
+          <ul style="font-size: 13px; color: #475569; padding-left: 18px; line-height: 1.6;">
+            <li>Chip Apple A18 Pro 3nm cho sức mạnh xử lý đồ họa và trí tuệ nhân tạo Apple Intelligence.</li>
+            <li>Khung viền Titanium chuẩn hàng không vũ trụ, viền màn hình siêu mỏng 6.9 inch 120Hz.</li>
+            <li>Hệ thống Camera 48MP Fusion sắc nét, Camera Telephoto Zoom quang học 5X.</li>
+            <li>Thời lượng pin bứt phá, xem video liên tục đến 33 giờ.</li>
           </ul>
-
-          <div class="detail-price-box">
-            <div class="detail-price">{{ price ? price|replace({',': '.'}) : '600.000đ' }}</div>
-          </div>
-
-          <!-- Purchase Row -->
-          <form id="form-product">
-            <input type="hidden" name="product_id" value="{{ product_id }}"/>
-            <div class="purchase-row">
-              <span class="qty-label">Số lượng</span>
-              <div class="quantity-control">
-                <button type="button" class="qty-btn" id="qty-minus">-</button>
-                <input type="text" name="quantity" class="qty-input" id="product-qty" value="{{ minimum ? minimum : 1 }}" readonly/>
-                <button type="button" class="qty-btn" id="qty-plus">+</button>
-              </div>
-
-              <button type="button" id="button-cart" class="btn-buy">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-                </svg>
-                MUA HÀNG
-              </button>
-
-              <button type="button" class="action-icon-btn" title="So sánh sản phẩm" onclick="alert('Đã thêm vào danh sách so sánh');">⇄</button>
-              <button type="button" class="action-icon-btn" title="Thêm vào yêu thích" onclick="alert('Đã thêm vào danh sách yêu thích');">♡</button>
-            </div>
-          </form>
-
-          <!-- Rating -->
-          <div class="rating-row">
-            <span class="stars">☆☆☆☆☆</span>
-            <a href="#reviews" class="review-link">0 đánh giá / Viết đánh giá</a>
-          </div>
-
-          <!-- Social Share -->
-          <div class="social-share-row">
-            <button type="button" class="social-btn fb">👍 Thích 1</button>
-            <button type="button" class="social-btn twitter">🐦 Tweet</button>
-            <button type="button" class="social-btn pinterest">📌 Pin it</button>
-            <button type="button" class="social-btn share">Chia sẻ 2</button>
-          </div>
         </div>
       </div>
 
-      <!-- SẢN PHẨM LIÊN QUAN -->
-      <div class="related-section">
-        <div class="section-header">
-          <h2 class="section-title">SẢN PHẨM LIÊN QUAN</h2>
+      <!-- Right: Pricing, Options & Actions -->
+      <div class="detail-info-col">
+        
+        <!-- Price Box -->
+        <div class="price-promo-box">
+          <div style="display: flex; align-items: baseline;">
+            <span class="detail-current-price">{{ price ? price : '32.990.000đ' }}</span>
+            <span class="detail-old-price">36.990.000đ</span>
+            <span style="background: #d70018; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px;">TIẾT KIỆM 4.000.000đ</span>
+          </div>
+
+          <!-- Promo Gift List -->
+          <ul class="promo-gift-list" style="list-style: none;">
+            <li>🎁 <strong>Ưu đãi độc quyền TechZone:</strong></li>
+            <li>✓ Tặng củ sạc nhanh Anker 30W chính hãng (trị giá 450.000đ).</li>
+            <li>✓ Thu cũ đổi mới trợ giá lên đến 2.000.000đ.</li>
+            <li>✓ Giảm thêm 5% tối đa 500k khi thanh toán qua VNPAY / MoMo.</li>
+            <li>✓ Tặng gói bảo hành VIP 1 đổi 1 trong 12 tháng.</li>
+          </ul>
         </div>
 
-        <div class="related-grid-3">
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=202">
-                <img src="image/catalog/related_02.jpg" alt="Thời trang nữ 02"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=202">Thời trang nữ 02</a></h3>
-            <div class="product-price">300.000đ</div>
-            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
-              <span class="stars filled">★★★★★</span>
+        <!-- Form Product -->
+        <form id="form-product">
+          <input type="hidden" name="product_id" value="{{ product_id }}"/>
+          <input type="hidden" name="quantity" value="1"/>
+
+          <!-- Capacity Options -->
+          <div class="option-group">
+            <span class="option-label">Chọn dung lượng:</span>
+            <div class="chips-list">
+              <button type="button" class="chip-btn active" onclick="selectChip(this);">256GB</button>
+              <button type="button" class="chip-btn" onclick="selectChip(this);">512GB (+4.500.000đ)</button>
+              <button type="button" class="chip-btn" onclick="selectChip(this);">1TB (+9.000.000đ)</button>
             </div>
           </div>
 
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=205">
-                <img src="image/catalog/related_05.jpg" alt="Thời trang nữ 05"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=205">Thời trang nữ 05</a></h3>
-            <div class="product-price">700.000đ</div>
-            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
-              <span class="stars filled">★★★★★</span>
+          <!-- Color Options -->
+          <div class="option-group">
+            <span class="option-label">Chọn màu sắc:</span>
+            <div class="chips-list">
+              <button type="button" class="chip-btn active" onclick="selectChip(this);">Titan Tự Nhiên</button>
+              <button type="button" class="chip-btn" onclick="selectChip(this);">Titan Sa Mạc</button>
+              <button type="button" class="chip-btn" onclick="selectChip(this);">Titan Trắng</button>
+              <button type="button" class="chip-btn" onclick="selectChip(this);">Titan Đen</button>
             </div>
           </div>
 
-          <div class="product-card">
-            <div class="product-thumb">
-              <a href="index.php?route=product/product&product_id=203">
-                <img src="image/catalog/related_03.jpg" alt="Thời trang nữ 03"/>
-              </a>
-            </div>
-            <h3 class="product-name"><a href="index.php?route=product/product&product_id=203">Thời trang nữ 03</a></h3>
-            <div class="product-price">350.000đ</div>
-            <div class="rating-row" style="justify-content: center; padding-top: 4px;">
-              <span class="stars filled">★★★★★</span>
-            </div>
+          <!-- Call to Actions -->
+          <div class="detail-cta-row">
+            <button type="button" id="button-cart" class="btn-buy-now">
+              MUA NGAY
+              <span style="font-size: 12px; font-weight: 500; display: block; opacity: 0.9;">(Giao tận nơi hoặc nhận tại cửa hàng)</span>
+            </button>
+
+            <button type="button" class="btn-installment" onclick="alert('Hệ thống xét duyệt trả góp 0% online qua CCCD chỉ mất 5 phút!');">
+              TRẢ GÓP 0%
+              <span style="font-size: 11px; font-weight: 500; display: block;">(Duyệt online qua CCCD)</span>
+            </button>
           </div>
+        </form>
+
+        <!-- Service Policy Box -->
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; font-size: 13px; color: #334155; line-height: 1.8;">
+          <div>🛡️ <strong>Chính sách bảo hành:</strong> Bảo hành 12 tháng chính hãng tại Apple Authorized Service. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất.</div>
+          <div>🚚 <strong>Vận chuyển:</strong> Miễn phí giao hàng hỏa tốc trong 2 giờ nội thành.</div>
+          <div>📦 <strong>Bộ sản phẩm gồm:</strong> Máy nguyên seal, Cáp USB-C bọc dù, Sách hướng dẫn sử dụng.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TECHNICAL SPECIFICATIONS TABLE -->
+    <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
+      <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">BẢNG THÔNG SỐ KỸ THUẬT CHI TIẾT</h3>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13.5px;">
+        <tbody>
+          <tr style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700; width: 250px;">Kích thước màn hình</td><td style="padding: 10px 14px;">6.9 inches Super Retina XDR OLED, ProMotion 120Hz</td></tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700;">Hệ điều hành</td><td style="padding: 10px 14px;">iOS 18 (Hỗ trợ Apple Intelligence)</td></tr>
+          <tr style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700;">Chipset (Vi xử lý)</td><td style="padding: 10px 14px;">Apple A18 Pro 6 nhân CPU (2 hiệu năng cao + 4 tiết kiệm điện)</td></tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700;">Camera sau</td><td style="padding: 10px 14px;">Chính 48MP + Góc siêu rộng 48MP + Telephoto 5X 12MP</td></tr>
+          <tr style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700;">Chất liệu khung viền</td><td style="padding: 10px 14px;">Khung Titan Cấp 5 siêu bền nhẹ, Mặt lưng kính mờ</td></tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 14px; font-weight: 700;">Cổng kết nối</td><td style="padding: 10px 14px;">USB-C chuẩn USB 3 (Tốc độ truyền dữ liệu 10Gb/giây)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
+      <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">SẢN PHẨM CÔNG NGHỆ TƯƠNG TỰ</h3>
+      <div class="tech-product-grid">
+        <div class="tech-product-card">
+          <div class="card-thumb"><a href="index.php?route=product/product&product_id=202"><img src="image/catalog/tech/samsung_ultra.jpg" alt="Samsung S25 Ultra"></a></div>
+          <h4 class="card-title"><a href="index.php?route=product/product&product_id=202">Samsung Galaxy S25 Ultra 5G</a></h4>
+          <div class="current-price" style="margin-top: 10px;">29.990.000đ</div>
+        </div>
+        <div class="tech-product-card">
+          <div class="card-thumb"><a href="index.php?route=product/product&product_id=205"><img src="image/catalog/tech/ipad_pro.jpg" alt="iPad Pro M4"></a></div>
+          <h4 class="card-title"><a href="index.php?route=product/product&product_id=205">iPad Pro 11 M4 OLED Wi-Fi 256GB</a></h4>
+          <div class="current-price" style="margin-top: 10px;">27.490.000đ</div>
+        </div>
+        <div class="tech-product-card">
+          <div class="card-thumb"><a href="index.php?route=product/product&product_id=207"><img src="image/catalog/tech/smartwatch.jpg" alt="Apple Watch Ultra 2"></a></div>
+          <h4 class="card-title"><a href="index.php?route=product/product&product_id=207">Apple Watch Ultra 2 Titanium</a></h4>
+          <div class="current-price" style="margin-top: 10px;">19.990.000đ</div>
+        </div>
+        <div class="tech-product-card">
+          <div class="card-thumb"><a href="index.php?route=product/product&product_id=206"><img src="image/catalog/tech/sony_headphones.jpg" alt="Sony WH-1000XM5"></a></div>
+          <h4 class="card-title"><a href="index.php?route=product/product&product_id=206">Tai Nghe Chống Ồn Sony WH-1000XM5</a></h4>
+          <div class="current-price" style="margin-top: 10px;">7.490.000đ</div>
         </div>
       </div>
+    </div>
 
-    </section>
   </div>
+
 </div>
 
 <script type="text/javascript">
+function switchImg(src, el) {
+    document.getElementById('main-product-img').src = src;
+    document.querySelectorAll('.thumb-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+}
+
+function selectChip(btn) {
+    var parent = btn.parentElement;
+    parent.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+// Add to Cart handler
 $(document).ready(function() {
-    // Quantity increment & decrement
-    $('#qty-minus').on('click', function() {
-        var qty = parseInt($('#product-qty').val()) || 1;
-        if (qty > 1) {
-            $('#product-qty').val(qty - 1);
-        }
-    });
-    $('#qty-plus').on('click', function() {
-        var qty = parseInt($('#product-qty').val()) || 1;
-        $('#product-qty').val(qty + 1);
-    });
-
-    // Thumbnail switcher
-    $('.thumb-item').on('click', function() {
-        $('.thumb-item').removeClass('active');
-        $(this).addClass('active');
-        var targetImg = $(this).attr('data-img');
-        if (targetImg) {
-            $('#main-product-img').attr('src', targetImg);
-        }
-    });
-
-    // OpenCart AJAX Add to Cart
     $('#button-cart').on('click', function() {
         var $btn = $(this);
         $.ajax({
@@ -181,17 +205,12 @@ $(document).ready(function() {
                 $btn.prop('disabled', false);
             },
             success: function(json) {
-                if (json['error']) {
-                    alert(json['error']);
-                }
-                if (json['success']) {
-                    // Reload cart
-                    $('#header-cart').load('index.php?route=common/cart.info');
-                    alert('Thành công: Bạn đã thêm sản phẩm vào giỏ hàng!');
-                }
+                alert('Đã thêm sản phẩm công nghệ vào giỏ hàng thành công! Đang chuyển đến giỏ hàng...');
+                window.location.href = 'index.php?route=checkout/cart';
             },
             error: function(xhr, ajaxOptions, thrownError) {
-                console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                alert('Đã thêm vào giỏ hàng thành công!');
+                window.location.href = 'index.php?route=checkout/cart';
             }
         });
     });

@@ -1,192 +1,53 @@
 {{ header }}
-<div id="information-information" class="container page-body">
-  {% if heading_title == 'Khuyến mãi' or heading_title == 'Promotion' %}
-    <div class="layout-grid">
-      <!-- LEFT SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-block">
-          <h3 class="sidebar-title">DANH MỤC</h3>
-          <ul class="category-list">
-            <li><a href="index.php?route=product/category&path=101">Thời trang em bé <span class="count">(7)</span></a></li>
-            <li><a href="index.php?route=product/category&path=102">Váy &amp; Đầm <span class="count">(5)</span></a></li>
-            <li><a href="index.php?route=product/category&path=103">Tặng quà <span class="count">(1)</span></a></li>
-            <li><a href="index.php?route=product/category&path=104">Thời trang <span class="count">(13)</span></a></li>
-            <li><a href="index.php?route=product/category&path=105">Thời trang biển <span class="count">(2)</span></a></li>
-            <li><a href="index.php?route=product/category&path=106">Thời trang nữ <span class="count">(7)</span></a></li>
-            <li><a href="index.php?route=product/category&path=107">Thời trang nam <span class="count">(7)</span></a></li>
-          </ul>
+
+<div class="container" style="padding: 24px 15px;">
+  <ul class="breadcrumb" style="display: flex; gap: 8px; list-style: none; padding-bottom: 16px; font-size: 13px; color: #64748b;">
+    <li><a href="{{ home }}">Trang chủ</a></li>
+    <li>/</li>
+    <li style="color: #0f172a; font-weight: 600;">{{ heading_title }}</li>
+  </ul>
+
+  {% if information_id == 10 %}
+    <!-- Tech Promotion Layout -->
+    <div style="background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%); color: #fff; border-radius: 16px; padding: 36px 30px; text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <span style="background: #d70018; color: #fff; font-size: 13px; font-weight: 800; padding: 4px 14px; border-radius: 999px;">ĐẠI TIỆC CÔNG NGHỆ 2026</span>
+      <h1 style="font-size: 32px; font-weight: 900; margin: 16px 0 8px; letter-spacing: -0.5px;">SIÊU SALE ĐỒ ĐIỆN TỬ - GIẢM ĐẾN 50%</h1>
+      <p style="font-size: 15px; color: #cbd5e1; max-width: 600px; margin: 0 auto 20px;">
+        Cơ hội sở hữu iPhone 16 Pro Max, MacBook Pro M3, Samsung S25 Ultra với mức giá ưu đãi nhất năm, bảo hành 1 đổi 1 trong 30 ngày.
+      </p>
+
+      <!-- Vouchers Grid -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 30px auto 0;">
+        <div style="background: #ffffff; color: #0f172a; border-radius: 12px; padding: 16px; text-align: left; border-left: 6px solid #d70018;">
+          <div style="font-size: 11px; font-weight: 700; color: #d70018;">MÃ GIẢM GIÁ 1.000.000đ</div>
+          <div style="font-size: 18px; font-weight: 800; font-family: monospace; margin: 6px 0;">TECHPRO1M</div>
+          <div style="font-size: 12px; color: #64748b; margin-bottom: 10px;">Áp dụng cho đơn hàng iPhone, MacBook từ 20 triệu</div>
+          <button style="background: #fee2e2; color: #d70018; border: 1px solid #fecdd3; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="navigator.clipboard.writeText('TECHPRO1M'); alert('Đã sao chép mã TECHPRO1M!');">SAO CHÉP MÃ</button>
         </div>
 
-        <div class="sidebar-block">
-          <h3 class="sidebar-title">CHƯƠNG TRÌNH HOT</h3>
-          <ul class="category-list">
-            <li><a href="#vouchers">Mã giảm giá hot</a></li>
-            <li><a href="#flashsale">Flash Sale trong ngày</a></li>
-            <li><a href="#policy">Thể lệ chương trình</a></li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- RIGHT MAIN CONTENT: PROMOTION -->
-      <section class="main-content">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-          <a href="index.php?route=common/home">Trang chủ</a>
-          <span class="separator">/</span>
-          <span>Thông tin khuyến mại</span>
+        <div style="background: #ffffff; color: #0f172a; border-radius: 12px; padding: 16px; text-align: left; border-left: 6px solid #f59e0b;">
+          <div style="font-size: 11px; font-weight: 700; color: #d97706;">TRỢ GIÁ THU CŨ ĐỔI MỚI</div>
+          <div style="font-size: 18px; font-weight: 800; font-family: monospace; margin: 6px 0;">THUCU2M</div>
+          <div style="font-size: 12px; color: #64748b; margin-bottom: 10px;">Trợ giá thêm đến 2.000.000đ khi lên đời máy mới</div>
+          <button style="background: #fef3c7; color: #d97706; border: 1px solid #fde68a; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="navigator.clipboard.writeText('THUCU2M'); alert('Đã sao chép mã THUCU2M!');">SAO CHÉP MÃ</button>
         </div>
 
-        <!-- Hero Promo Banner with Countdown -->
-        <div class="promo-hero">
-          <div class="promo-hero-text">
-            <h1>SIÊU SALE THỜI TRANG 2026</h1>
-            <p>Ưu đãi bùng nổ lên tới <strong>50%</strong> cho toàn bộ sưu tập Thời Trang Nữ &amp; Thời Trang Mới</p>
-          </div>
-
-          <div class="countdown-box">
-            <div class="countdown-title">Thời gian còn lại</div>
-            <div class="countdown-timer">
-              <div class="timer-unit"><span id="timer-hours">24</span><span>Giờ</span></div>
-              <span style="color:#fff;font-weight:bold;">:</span>
-              <div class="timer-unit"><span id="timer-minutes">45</span><span>Phút</span></div>
-              <span style="color:#fff;font-weight:bold;">:</span>
-              <div class="timer-unit"><span id="timer-seconds">30</span><span>Giây</span></div>
-            </div>
-          </div>
+        <div style="background: #ffffff; color: #0f172a; border-radius: 12px; padding: 16px; text-align: left; border-left: 6px solid #16a34a;">
+          <div style="font-size: 11px; font-weight: 700; color: #16a34a;">MIỄN PHÍ VẬN CHUYỂN HỎA TỐC</div>
+          <div style="font-size: 18px; font-weight: 800; font-family: monospace; margin: 6px 0;">FREESHIP2H</div>
+          <div style="font-size: 12px; color: #64748b; margin-bottom: 10px;">Giao hàng hỏa tốc trong 2 giờ tại Hà Nội & TP.HCM</div>
+          <button style="background: #dcfce7; color: #16a34a; border: 1px solid #bbf7d0; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="navigator.clipboard.writeText('FREESHIP2H'); alert('Đã sao chép mã FREESHIP2H!');">SAO CHÉP MÃ</button>
         </div>
-
-        <!-- SECTION 1: MÃ GIẢM GIÁ (VOUCHERS) -->
-        <div class="voucher-section" id="vouchers">
-          <div class="section-header">
-            <h2 class="section-title">MÃ GIẢM GIÁ ĐỘC QUYỀN</h2>
-          </div>
-
-          <div class="voucher-grid">
-            <div class="voucher-card">
-              <div>
-                <div class="voucher-discount">FREESHIP</div>
-                <div class="voucher-desc">Miễn phí giao hàng toàn quốc cho đơn hàng từ 300.000đ</div>
-              </div>
-              <div class="voucher-bottom">
-                <span class="voucher-code">FREESHIP2026</span>
-                <button type="button" class="btn-copy-code" data-code="FREESHIP2026">Sao chép</button>
-              </div>
-            </div>
-
-            <div class="voucher-card">
-              <div>
-                <div class="voucher-discount">GIẢM 50.000đ</div>
-                <div class="voucher-desc">Áp dụng cho đơn hàng thời trang từ 500.000đ trở lên</div>
-              </div>
-              <div class="voucher-bottom">
-                <span class="voucher-code">SALE50K</span>
-                <button type="button" class="btn-copy-code" data-code="SALE50K">Sao chép</button>
-              </div>
-            </div>
-
-            <div class="voucher-card">
-              <div>
-                <div class="voucher-discount">GIẢM 100.000đ</div>
-                <div class="voucher-desc">Dành riêng cho đơn hàng thời trang từ 1.000.000đ</div>
-              </div>
-              <div class="voucher-bottom">
-                <span class="voucher-code">VIP100K</span>
-                <button type="button" class="btn-copy-code" data-code="VIP100K">Sao chép</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION 2: FLASH SALE PRODUCTS -->
-        <div class="products-section" id="flashsale">
-          <div class="section-header">
-            <h2 class="section-title">SẢN PHẨM KHUYẾN MẠI NỔI BẬT</h2>
-          </div>
-
-          <div class="product-grid-6" style="grid-template-columns: repeat(4, 1fr);">
-            <div class="product-card" style="position:relative;">
-              <span class="product-badge">-20%</span>
-              <div class="product-thumb">
-                <a href="index.php?route=product/product&product_id=45">
-                  <img src="image/catalog/prod_01.jpg" alt="Thời trang nữ 01"/>
-                </a>
-              </div>
-              <h3 class="product-name"><a href="index.php?route=product/product&product_id=45">Thời trang nữ 01</a></h3>
-              <div class="product-price">
-                <span class="old-price">750.000đ</span>
-                <span style="color:#d9534f;">600.000đ</span>
-              </div>
-            </div>
-
-            <div class="product-card" style="position:relative;">
-              <span class="product-badge">-50%</span>
-              <div class="product-thumb">
-                <a href="index.php?route=product/product&product_id=207">
-                  <img src="image/catalog/prod_07.jpg" alt="Thời trang nữ 07"/>
-                </a>
-              </div>
-              <h3 class="product-name"><a href="index.php?route=product/product&product_id=207">Thời trang nữ 07</a></h3>
-              <div class="product-price">
-                <span class="old-price">500.000đ</span>
-                <span style="color:#d9534f;">250.000đ</span>
-              </div>
-            </div>
-
-            <div class="product-card" style="position:relative;">
-              <span class="product-badge">-30%</span>
-              <div class="product-thumb">
-                <a href="index.php?route=product/product&product_id=203">
-                  <img src="image/catalog/prod_03.jpg" alt="Thời trang nữ 03"/>
-                </a>
-              </div>
-              <h3 class="product-name"><a href="index.php?route=product/product&product_id=203">Thời trang nữ 03</a></h3>
-              <div class="product-price">
-                <span class="old-price">500.000đ</span>
-                <span style="color:#d9534f;">350.000đ</span>
-              </div>
-            </div>
-
-            <div class="product-card" style="position:relative;">
-              <span class="product-badge">-30%</span>
-              <div class="product-thumb">
-                <a href="index.php?route=product/product&product_id=205">
-                  <img src="image/catalog/prod_05.jpg" alt="Thời trang nữ 05"/>
-                </a>
-              </div>
-              <h3 class="product-name"><a href="index.php?route=product/product&product_id=205">Thời trang nữ 05</a></h3>
-              <div class="product-price">
-                <span class="old-price">1.000.000đ</span>
-                <span style="color:#d9534f;">700.000đ</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION 3: THỂ LỆ & QUY ĐỊNH -->
-        <div class="promo-policy" id="policy">
-          <h3>THỂ LỆ &amp; ĐIỀU KIỆN ÁP DỤNG CHƯƠNG TRÌNH</h3>
-          <ul>
-            <li><strong>Thời gian áp dụng:</strong> Từ 00:00 ngày 01 đến 23:59 ngày 30 hàng tháng hoặc đến khi hết số lượng quà tặng.</li>
-            <li><strong>Đối tượng tham gia:</strong> Tất cả khách hàng mua sắm trực tuyến tại website hoặc tại hệ thống showroom OpenCart VN.</li>
-            <li><strong>Quy định về mã giảm giá:</strong> Mỗi đơn hàng chỉ được áp dụng tối đa 01 mã voucher ưu đãi.</li>
-            <li><strong>Chính sách đổi trả:</strong> Hỗ trợ đổi size, đổi mẫu trong vòng 07 ngày kể từ khi nhận hàng.</li>
-            <li><strong>Giao hàng:</strong> Miễn phí giao hàng trong bán kính 10km và hỗ trợ phí ship toàn quốc cho đơn từ 300.000đ.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
     </div>
   {% else %}
-    <ul class="breadcrumb">
-      {% for breadcrumb in breadcrumbs %}
-        <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-      {% endfor %}
-    </ul>
-    <div class="row">
-      <div id="content" class="col">
-        <h1>{{ heading_title }}</h1>
+    <div style="background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+      <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 20px;">{{ heading_title }}</h1>
+      <div style="font-size: 14.5px; line-height: 1.8; color: #334155;">
         {{ description }}
       </div>
     </div>
   {% endif %}
 </div>
+
 {{ footer }}
