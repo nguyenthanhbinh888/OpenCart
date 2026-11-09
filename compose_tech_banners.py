@@ -83,3 +83,4 @@ d_sub2.text((20, 120), "Ưu đãi đến 35%", fill=(239, 68, 68), font=f_sub_ti
 d_sub2.text((20, 155), "Khám phá ngay →", fill=(255, 255, 255), font=f_sub_txt)
 sub2.save(os.path.join(target_dir, "banner_sub2.jpg"), quality=90)
 print("[OK] Created banner_sub2.jpg")
+

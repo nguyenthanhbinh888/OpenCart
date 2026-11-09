@@ -25,3 +25,4 @@ draw.text((62, 38), "SIÊU THỊ ĐIỆN TỬ & CÔNG NGHỆ CHÍNH HÃNG", fill
 
 img.save(os.path.join(target_dir, "tech_logo.png"))
 print("[OK] Created tech_logo.png")
+

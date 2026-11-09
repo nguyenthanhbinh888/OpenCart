@@ -770,15 +770,55 @@ a:hover {
   color: var(--text-muted);
 }
 
+
 /* ==========================================================================
-   9. FOOTER
+   9. FOOTER (FIXED POSITIONING)
    ========================================================================== */
-.site-footer {
-  background: #0f172a;
-  color: #94a3b8;
-  padding: 40px 0 20px;
-  font-size: 13px;
-  margin-top: 40px;
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#product-category,
+#product-product,
+#product-search,
+#information-information,
+#common-home,
+.container {
+  flex: 1 0 auto;
+}
+
+#content, #column-left, #column-right {
+  padding-bottom: 30px !important;
+}
+
+/* Hide legacy banner carousel in sidebar */
+#column-left .carousel,
+#column-right .carousel,
+#column-left [id^="carousel-banner"],
+#column-right [id^="carousel-banner"] {
+  display: none !important;
+}
+
+footer,
+.site-footer,
+#footer {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  clear: both !important;
+  margin-top: 60px !important;
+  background: #0f172a !important;
+  color: #94a3b8 !important;
+  padding: 40px 0 20px !important;
+  font-size: 13px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
 }
 
 .footer-grid {
@@ -798,6 +838,8 @@ a:hover {
 
 .footer-links {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
@@ -806,6 +848,7 @@ a:hover {
 
 .footer-links a {
   color: #94a3b8;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
@@ -829,7 +872,167 @@ a:hover {
 }
 
 /* ==========================================================================
-   10. RESPONSIVE
+   10. CATEGORY VIEW & PRODUCT THUMB STYLING
+   ========================================================================== */
+#product-category {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#product-category h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+#product-category .list-group-item {
+  border-color: #e2e8f0;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+#product-category .list-group-item.active {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+#product-category .btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.product-thumb {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 16px !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+}
+
+.product-thumb:hover {
+  border-color: var(--primary) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.product-thumb .image {
+  height: 190px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+  overflow: hidden !important;
+}
+
+.product-thumb .image img {
+  max-height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  transition: transform 0.3s ease !important;
+}
+
+.product-thumb:hover .image img {
+  transform: scale(1.08) !important;
+}
+
+.product-thumb h4 {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  min-height: 40px !important;
+  margin-bottom: 8px !important;
+}
+
+.product-thumb h4 a {
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+}
+
+.product-thumb h4 a:hover {
+  color: var(--primary) !important;
+}
+
+.product-thumb .description {
+  display: none !important;
+}
+
+.product-thumb .price {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: var(--primary) !important;
+  margin-top: auto !important;
+  margin-bottom: 10px !important;
+}
+
+.product-thumb .price .price-new {
+  color: var(--primary) !important;
+  font-weight: 800 !important;
+}
+
+.product-thumb .price .price-old {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through !important;
+  margin-left: 6px !important;
+  font-weight: normal !important;
+}
+
+.product-thumb .button {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 8px !important;
+}
+
+.product-thumb .button .btn-cart,
+.product-thumb .button button[formaction*="cart_add"] {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 8px 12px !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  flex: 1 !important;
+  transition: all 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+.product-thumb .button .btn-cart:hover,
+.product-thumb .button button[formaction*="cart_add"]:hover {
+  background: var(--primary-dark) !important;
+}
+
+.product-thumb .button button[formaction*="wishlist"],
+.product-thumb .button button[formaction*="compare"] {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 8px 10px !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+}
+
+.product-thumb .button button[formaction*="wishlist"]:hover,
+.product-thumb .button button[formaction*="compare"]:hover {
+  background: #e2e8f0 !important;
+  color: var(--primary) !important;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE
    ========================================================================== */
 @media (max-width: 992px) {
   .hero-grid {
@@ -859,113 +1062,15 @@ a:hover {
   .footer-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ==========================================================================
-   11. CATEGORY VIEW & PRODUCT THUMB STYLING
-   ========================================================================== */
-.product-thumb {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.25s ease;
-  position: relative;
-}
-
-.product-thumb:hover {
-  border-color: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-.product-thumb .image {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-
-.product-thumb .image img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.3s;
-}
-
-.product-thumb:hover .image img {
-  transform: scale(1.08);
-}
-
-.product-thumb h4 {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.4;
-  height: 40px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.product-thumb h4 a {
-  color: var(--text-main);
-}
-
-.product-thumb h4 a:hover {
-  color: var(--primary);
-}
-
-.product-thumb .description {
-  display: none; /* Hide default lengthy description in grid */
-}
-
-.product-thumb .price {
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 10px;
-  margin-top: auto;
-}
-
-.product-thumb .price .price-new {
-  color: var(--primary);
-  font-weight: 800;
-}
-
-.product-thumb .price .price-old {
-  font-size: 12px;
-  color: #94a3b8;
-  text-decoration: line-through;
-  margin-left: 6px;
-  font-weight: normal;
-}
-
-.product-thumb .button {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.product-thumb .button button {
-  background: #fee2e2;
-  color: var(--primary);
-  border: 1px solid rgba(215, 0, 24, 0.2);
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-weight: 700;
-  flex: 1;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-thumb .button button:hover {
-  background: var(--primary);
-  color: #fff;
+  .site-header .header-inner {
+    flex-wrap: wrap;
+  }
+  .header-actions {
+    display: none;
+  }
+  .header-search {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
+  }
 }

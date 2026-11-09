@@ -27,3 +27,4 @@ for filename, url in images.items():
         print(f"[OK] Downloaded {filename} ({os.path.getsize(dest)} bytes)")
     except Exception as e:
         print(f"[FAIL] {filename}: {e}")
+
